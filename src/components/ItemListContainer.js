@@ -1,11 +1,13 @@
 import React from 'react'
 import carrito3 from '../carrito3.png'
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
   return (
     <div>
         <div>
-            HOLA EN ESTA SECCION SE ENCONTRARAN LOS ItemS         
+            HOLA EN ESTA SECCION SE ENCONTRARAN LOS ItemS
+            <br/> 
+            {props.text}      
             {/* <div className="card" style="width: 18rem;">
                 <img src={carrito3} className="card-img-top" alt="..."/>
                 <div className="card-body">
