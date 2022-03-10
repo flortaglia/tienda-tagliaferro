@@ -14,7 +14,7 @@ const ItemListContainer = (props) => {
             HOLA EN ESTA SECCION SE ENCONTRARAN LOS ItemS
             <br/> 
             {text}      
-            <ItemCount stock={10} />
+            <ItemCount stock={10} initial={1} />
         </div>
 
 
