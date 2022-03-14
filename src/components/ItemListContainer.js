@@ -1,24 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import carrito3 from '../carrito3.png'
+import Item from './Item'
 import ItemCount from './ItemCount'
+import ItemList from './ItemList'
+import ProductLoader from './ProductLoader'
 
 
-const ItemListContainer = (props) => {
-  let {text}=props
+const ItemListContainer = ({text}) => {
   
-  // let text =props.text
+  
+  const [item,setItem]=useState([]);
+
+  useEffect(()=>
+  ProductLoader().then((prod)=>setItem(prod))
+  .catch((error)=>{console.log(error)})
+  .finally(()=>console.log("Termino")),[]
+  )
   
   return (
     <div>
         <div>
             HOLA EN ESTA SECCION SE ENCONTRARAN LOS ItemS
             <br/> 
-            {text}      
-            <ItemCount stock={10} initial={1} />
+            {text}
+            <ItemList listProducts={item}/>
         </div>
-
-
-
 
     </div>
   )
