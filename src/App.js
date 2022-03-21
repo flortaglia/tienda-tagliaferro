@@ -12,19 +12,24 @@ import {
 
 function App() {
   return (
-    // <BrowserRouter>
+    <BrowserRouter>
 
       <div className="App">
+
         <NavBar/>
-        <ItemListContainer text="Soy item list"/>
-        <ItemDetailContainer/>
-        {/* <Routes>
-          <Route path="/" element={<ItemListContainer text="Soy item list"/>}/>
+        
+        
+        <Routes>
+          <Route path="/" element={<ItemListContainer text="Lista de Productos"/>}/>
+          <Route path="/productos" element={<ItemListContainer text="Lista de Productos"/>}/>
+          <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
+          <Route path="/detail/:seeId" element={<ItemDetailContainer/>}/>
           <Route path="*" element={<Navigate to="/"/>}/>
-        </Routes> */}
+        </Routes>
        
       </div>
-    
+
+    </BrowserRouter>
   );
 }
 

@@ -45,3 +45,10 @@
   padding: 10px;
   margin: 20px;
 }
+
+.nav-space{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}

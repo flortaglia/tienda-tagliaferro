@@ -1,36 +1,37 @@
 import React from 'react'
 import CartWidget from './CartWidget'
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className=" navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Tienda de Ropa</a>
+                <Link className="navbar-brand" to="/">Pizzas & empanadas</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="nav-space navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <Link className="nav-Link active" aria-current="page" to="/">Inicio</Link>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#">Promociones</a>
+                        <Link className="nav-Link" to="/promociones">Promociones</Link>
                         </li>
                         <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorias
-                        </a>
+                        <Link className="nav-Link dropdown-toggle" to="/productos" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="#">Remeras</a></li>
-                            <li><a className="dropdown-item" href="#">Pantalones</a></li>
+                            <li><Link className="dropdown-item" to="/productos/pizzas">Pizzas</Link></li>
+                            <li><Link className="dropdown-item" to="/productos/empanadas">Empanadas</Link></li>
                             <li><hr className="dropdown-divider"/></li>
-                            <li><a className="dropdown-item" href="#">Calzado</a></li>
+                            <li><Link className="dropdown-item" to="/productos/canastitas">Canastitas</Link></li>
                         </ul>
                         </li>
                         {/* <li className="nav-item">
-                        <a className="nav-link disabled">Disabled</a>
+                        <a className="nav-Link disabled">Disabled</a>
                         </li> */}
                     </ul>
                     <CartWidget/>

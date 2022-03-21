@@ -1,21 +1,24 @@
 import React, {useState, useEffect} from 'react'
-import carrito3 from '../carrito3.png'
-import Item from './Item'
-import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 import ProductLoader from './ProductLoader'
+import {useParams} from 'react-router-dom'
 
 
 const ItemListContainer = ({text}) => {
   
   
   const [item,setItem]=useState([]);
-
+  const {categoryId} =useParams()
+   console.log(categoryId)
   useEffect(()=>
-  ProductLoader().then((prod)=>setItem(prod))
+  ProductLoader()
+  .then((prod)=>{
+    if(!categoryId){setItem(prod)}
+    else{setItem(prod.filter((product)=>product.category===categoryId))}
+  })
   .catch((error)=>{console.log(error)})
-  .finally(()=>console.log("Termino")),[]
-  )
+  .finally(()=>console.log("Termino"))
+  ,[categoryId])
   
   return (
     <div>

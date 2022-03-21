@@ -1,17 +1,27 @@
 import React, {useState, useEffect} from 'react'
 // import searchProduct from './PedirDatos'
 import ItemDetail from './ItemDetail'
-import SingleProductDetail from './SingleProductDetail'
+import ProductLoader from './ProductLoader'
+import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     // const [loading, setLoading] = useState(false)
-    const [ItemDetailProduct, setItemDetail] = useState({})
+    const [ItemDetailProduct, setItemDetail] = useState(null);
+    const {seeId} =useParams()
+    console.log(Number(seeId))
+    console.log(ItemDetailProduct)
     
-    useEffect(()=>
-    SingleProductDetail().then((prod)=>setItemDetail(prod))
+
+  useEffect(()=>
+    ProductLoader()
+    .then((prod)=>{
+    setItemDetail(prod.find((product)=>product.id===Number(seeId)))
+    })
     .catch((error)=>{console.log(error)})
-    .finally(()=>console.log("Termino")),[]
-    )
+    .finally(()=>console.log("Termino"))
+  ,[])
+
+  
   
         
             // let arr=[]
@@ -45,7 +55,7 @@ const ItemDetailContainer = () => {
         loading 
         ? <h2>Cargando...</h2>: */}
         {/* <button className=" agregar btn btn-primary" onClick={()=>console.log("obtenerProductos")}>ver más</button>  */}
-        <ItemDetail detail= {ItemDetailProduct}/>   
+        <ItemDetail {...ItemDetailProduct}/>   
     </div>
   )
 }
