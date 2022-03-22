@@ -1,5 +1,6 @@
 Buenos días, este proyecto es un e-commerce de una tienda de comida "Pizzas y empanadas"
 Para ello utilice Bootstrap y React Js.
+video https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7
 Saludos
 
 
