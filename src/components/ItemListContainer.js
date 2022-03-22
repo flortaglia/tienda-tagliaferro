@@ -9,7 +9,7 @@ const ItemListContainer = ({text}) => {
   
   const [item,setItem]=useState([]);
   const {categoryId} =useParams()
-   console.log(categoryId)
+  
   useEffect(()=>
   ProductLoader()
   .then((prod)=>{
