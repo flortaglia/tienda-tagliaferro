@@ -13,22 +13,17 @@ import {
 function App() {
   return (
     <BrowserRouter>
-
       <div className="App">
-
         <NavBar/>
-        
         
         <Routes>
           <Route path="/" element={<ItemListContainer text="Lista de Productos"/>}/>
-          <Route path="/productos" element={<ItemListContainer text="Lista de Productos"/>}/>
+          <Route path="/promociones" element={<ItemListContainer text="Lista de Productos"/>}/>
           <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
           <Route path="/detail/:seeId" element={<ItemDetailContainer/>}/>
           <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
-       
       </div>
-
     </BrowserRouter>
   );
 }

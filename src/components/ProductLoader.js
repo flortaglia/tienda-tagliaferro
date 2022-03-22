@@ -9,8 +9,10 @@ export default function ProductLoader() {
             {id:4, title: "Pepperoni", description:"salsa de tomate, muzza y salame",price:700, pictureUrl:"/img/peperoni.webp", category:"pizzas",stock: 20},
             {id:5, title: "Carne", description:"carne suave",price:150, pictureUrl:"/img/carne-empa.webp", category:"empanadas",stock: 20},
             {id:6, title: "Santiagueña", description:"carne cortada a cuchillo",price:150, pictureUrl:"/img/santiague-empa.webp", category:"empanadas",stock: 20},
-            {id:7, title: "Jamon y Provolone", description:"jamon, muzza y provolone",price:150, pictureUrl:"/img/provo-canast.webp", category:"canastitas",stock: 20},
-          ];
+            {id:7, title: "Pollo", description:"pollo y verduras",price:150, pictureUrl:"/img/pollo-empa.webp", category:"empanadas",stock: 20},
+            {id:8, title: "Jamon y Provolone", description:"jamon, muzza y provolone",price:150, pictureUrl:"/img/provo-canast.webp", category:"canastitas",stock: 20},
+            {id:9, title: "Champignon", description:"Canastita de champignon y muzzarella",price:150, pictureUrl:"/img/champi-canast.webp", category:"canastitas",stock: 20}
+            ];
           if (products.length!=0){
             resolve(products)
           }else{reject("No se encontraron productos")}

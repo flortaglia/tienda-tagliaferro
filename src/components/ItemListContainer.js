@@ -23,8 +23,7 @@ const ItemListContainer = ({text}) => {
   return (
     <div>
         <div>
-            HOLA EN ESTA SECCION SE ENCONTRARAN LOS ItemS
-            <br/> 
+        <h1>{categoryId}</h1>
             {text}
             <ItemList listProducts={item}/>
         </div>

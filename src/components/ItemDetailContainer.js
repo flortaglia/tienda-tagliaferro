@@ -6,11 +6,8 @@ import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     // const [loading, setLoading] = useState(false)
-    const [ItemDetailProduct, setItemDetail] = useState(null);
-    const {seeId} =useParams()
-    console.log(Number(seeId))
-    console.log(ItemDetailProduct)
-    
+  const [ItemDetailProduct, setItemDetail] = useState(null);
+  const {seeId} =useParams()
 
   useEffect(()=>
     ProductLoader()
@@ -50,7 +47,7 @@ const ItemDetailContainer = () => {
             
 
   return (
-    <div>ItemDetailContainer
+    <div>
         {/* { 
         loading 
         ? <h2>Cargando...</h2>: */}

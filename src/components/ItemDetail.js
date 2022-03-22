@@ -1,8 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({stock, title,description,price,pictureUrl}) => {
-    
+const ItemDetail = ({id,stock, title,description,price,pictureUrl}) => {
+  
+  const [count, setCounter]= useState(1);
+  const onAdd =()=>{
+    const itemToCart ={
+      id,
+      title,
+      price,
+      pictureUrl,
+      count
+    }
+    console.log(itemToCart)
+  }
+
   return (
     <div>
       {title}
@@ -13,7 +25,12 @@ const ItemDetail = ({stock, title,description,price,pictureUrl}) => {
             <p className="card-text">{description}</p>
             <h5>Precio: $<span> {price}</span></h5>
           </div>
-          <ItemCount stock={stock} initial={1} />
+          <ItemCount 
+          stock={stock} 
+          count={count} 
+          setCounter={setCounter}
+          onAdd={onAdd}
+          />
       </div>    
     </div> 
   )

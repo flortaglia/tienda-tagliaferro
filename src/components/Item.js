@@ -1,15 +1,14 @@
 import React from 'react'
-import carrito3 from '../carrito3.png'
 import { Link } from 'react-router-dom'
 
 
-const Item = ({title, description, price,pictureUrl,id}) => {
+const Item = ({category,title, description, price,pictureUrl,id}) => {
   
 
   return (
     <div>
       
-      <div className="card" style={{width: "18rem"}}>
+      <div className="card m-3" style={{width: "18rem"}}>
           <img src={pictureUrl} className="card-img-top" alt="..."/>
           <div className="card-body">
             <h4 className="card-title">{title}</h4>
