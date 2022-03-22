@@ -1,3 +1,8 @@
+Buenos días, este proyecto es un e-commerce de una tienda de comida "Pizzas y empanadas"
+Para ello utilice Bootstrap y React Js.
+Saludos
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
