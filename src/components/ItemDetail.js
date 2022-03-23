@@ -1,17 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import ItemCount from './ItemCount'
+import {Modal} from './Modal';
 
-const ItemDetail = ({id,stock, title,description,price,pictureUrl}) => {
+
+const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) => {
   
   const [count, setCounter]= useState(1);
   const onAdd =()=>{
     const itemToCart ={
       id,
       title,
+      category,
       price,
       pictureUrl,
       count
     }
+    
     console.log(itemToCart)
   }
 
@@ -28,8 +32,10 @@ const ItemDetail = ({id,stock, title,description,price,pictureUrl}) => {
           <ItemCount 
           stock={stock} 
           count={count} 
+          title={title}
           setCounter={setCounter}
           onAdd={onAdd}
+          category={category}
           />
       </div>    
     </div> 

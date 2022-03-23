@@ -9,6 +9,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import  Cart  from './components/Cart';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/promociones" element={<ItemListContainer text="Lista de Productos"/>}/>
           <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
           <Route path="/detail/:seeId" element={<ItemDetailContainer/>}/>
+          <Route path="/cart" element={<Cart/>}/>
           <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
       </div>
