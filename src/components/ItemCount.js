@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Modal} from './Modal';
+
 
 
 const ItemCount = ({stock, onAdd, count,title,category, setCounter}) => {
@@ -21,15 +21,7 @@ const ItemCount = ({stock, onAdd, count,title,category, setCounter}) => {
         <button type="button" className="btn-minus btn btn-primary fas fa-minus" onClick={handleRestar}>-</button>
         </div>
         
-        {/* <div>
-        <button className=" agregar btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={onAdd}>Agregar</button>
-        </div> */}
-        <br/>
-        <Modal onAdd={onAdd}
-        count={count} 
-        title={title}
-        category={category}
-        /> 
+       
          
     </div>
   )

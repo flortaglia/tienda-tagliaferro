@@ -7,7 +7,7 @@ export const Modal =({onAdd, title, count, category})=> {
   return(
     <>
     
-    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={onAdd}>
+    <button type="button" className="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={onAdd}>
     Agregar
     </button>
     

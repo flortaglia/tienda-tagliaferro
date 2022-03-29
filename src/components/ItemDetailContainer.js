@@ -5,17 +5,20 @@ import ProductLoader from './ProductLoader'
 import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
-    // const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   const [ItemDetailProduct, setItemDetail] = useState(null);
   const {seeId} =useParams()
 
   useEffect(()=>
+  
+    // setLoading(true),
+
     ProductLoader()
     .then((prod)=>{
     setItemDetail(prod.find((product)=>product.id===Number(seeId)))
     })
     .catch((error)=>{console.log(error)})
-    .finally(()=>console.log("Termino"))
+    // .finally(()=>setLoading(false))
   ,[])
 
   
@@ -49,10 +52,10 @@ const ItemDetailContainer = () => {
   return (
     <div>
         {/* { 
-        loading 
-        ? <h2>Cargando...</h2>: */}
-        {/* <button className=" agregar btn btn-primary" onClick={()=>console.log("obtenerProductos")}>ver más</button>  */}
-        <ItemDetail {...ItemDetailProduct}/>   
+          loading 
+          ? <h2>Cargando...</h2>:  */}
+          <ItemDetail {...ItemDetailProduct}/>
+           
     </div>
   )
 }
