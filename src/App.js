@@ -22,6 +22,8 @@ function App() {
             <Route path="/productos/:categoryId" element={<ItemListContainer/>}/>
             <Route path="/detail/:seeId" element={<ItemDetailContainer/>}/>
             <Route path="/cart" element={<Cart/>}/>
+
+            {/* <Route path="/firebase" element={<FirebaseComponent/>}/> */}
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
         </div>

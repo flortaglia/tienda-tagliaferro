@@ -45,9 +45,11 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
           <Link to="/">
             <button type="button" className="btn btn-secondary my-3" >Seguir comprando</button>
           </Link>
+          {/* sería el botón que diría "Terminar Compra", me gusto más poner "Ver Carrito" */}
           <Link to="/cart">
             <button type="button" className="btn btn-primary my-3 mx-2" >Ver Carrito</button>
           </Link>
+
           </div>
         </>
         :
