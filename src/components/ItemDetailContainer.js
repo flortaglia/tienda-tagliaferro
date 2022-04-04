@@ -1,60 +1,37 @@
 import React, {useState, useEffect} from 'react'
 // import searchProduct from './PedirDatos'
 import ItemDetail from './ItemDetail'
-import ProductLoader from './ProductLoader'
+import {getDoc, doc} from "firebase/firestore"
+import {db} from "../utils/firebase"
 import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
-  // const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [ItemDetailProduct, setItemDetail] = useState(null);
   const {seeId} =useParams()
 
-  useEffect(()=>
-  
-    // setLoading(true),
-
-    ProductLoader()
-    .then((prod)=>{
-    setItemDetail(prod.find((product)=>product.id===Number(seeId)))
-    })
-    .catch((error)=>{console.log(error)})
-    // .finally(()=>setLoading(false))
-  ,[])
-
-  
-  
-        
-            // let arr=[]
-            // console.log("estoy en Conteiner detail")
-            // useEffect(()=>{
-            //     for (let i=1;i<3;i++){
-                    
-            //         searchProduct(i)
-            //         .then((res) =>res.json())
-            //         .then((res) => {
-            //             console.log( 'Hola',res)
-            //             arr.push(res)
-            //             console.log("estoy arr",arr)
-            //             setItemDetail([...arr])
-            //             console.log("estoy en setItemDetail",ItemDetailProduct) 
-            //         })
-            //         .finally(() => {
-                        
-            //         })
-            //     }
-                
-                
-                
-            // },[])
-            // console.log("estoy en setItemDetail2",ItemDetailProduct) 
-            
+  useEffect(() => {
+    setLoading(true)
+    
+    // referencia al document
+    const itemRef = doc(db, "items", seeId)
+    // peticion del doc
+    getDoc(itemRef)
+        .then((doc) => {
+            setItemDetail({id: doc.id, ...doc.data()})
+        })
+        .finally(()=> {
+            setLoading(false)
+        })
+}, []) 
 
   return (
     <div>
-        {/* { 
-          loading 
-          ? <h2>Cargando...</h2>:  */}
-          <ItemDetail {...ItemDetailProduct}/>
+      { 
+        loading 
+        ? <h2>Cargando...</h2>: 
+        <ItemDetail {...ItemDetailProduct}/>
+      }
            
     </div>
   )

@@ -4,7 +4,7 @@ import {BsFillTrashFill} from 'react-icons/bs'
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const {cart, emptyCart,removeItem,totalCart } = useContext(CartContext)
+  const {cart, emptyCart,removeItem,totalCart, handleChange } = useContext(CartContext)
 
   return (
     <div>
@@ -28,8 +28,8 @@ const Cart = () => {
                   <div className="row my-2" >
                     <div className="col">{item.title}</div>
                     <div className="col">$ {item.price}</div>
-                    <div className="col">{item.count}</div>
-                    
+                    <input id={item.id} type="number" maxLength={item.stock} minLength={1} onChange={(event)=>(handleChange(event.target.value,event.target.id))} defaultValue={item.count} />
+                    <div className="col">$ {item.count}</div>
                     <button className="btn btn-danger col" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
                   
                   </div>
@@ -52,7 +52,7 @@ const Cart = () => {
       &&
       <>
         <hr/>
-        <p className="mb-6 text-lg leading-8">Total $ {totalCart() }</p>
+        <p className="mb-6 text-lg leading-8">Total $ {totalCart()}</p>
         <div >
           <button className="btn btn-danger mx-2" onClick={emptyCart}>Vaciar Carrito</button>
           <Link to="/"><button className="btn btn-info mx-2">Seguir Comprando</button></Link>
