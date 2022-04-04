@@ -6,8 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom";
 import  Cart  from './components/Cart';
 import {CartProvider} from "./context/CartContext"
-import { useState } from 'react';
-import FirebaseComponent from './components/FirebaseComponent';
+
 
 function App() {
 
@@ -24,7 +23,7 @@ function App() {
             <Route path="/detail/:seeId" element={<ItemDetailContainer/>}/>
             <Route path="/cart" element={<Cart/>}/>
 
-            <Route path="/firebase" element={<FirebaseComponent/>}/>
+            {/* <Route path="/firebase" element={<FirebaseComponent/>}/> */}
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
         </div>

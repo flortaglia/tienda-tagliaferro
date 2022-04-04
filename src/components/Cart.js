@@ -25,12 +25,12 @@ const Cart = () => {
             
               cart.map((item)=>(
                 <div key={item.id}>    
-                  <div className="row my-2" >
+                  <div className=" row  my-2" >
                     <div className="col">{item.title}</div>
                     <div className="col">$ {item.price}</div>
-                    <input id={item.id} type="number" maxLength={item.stock} minLength={1} onChange={(event)=>(handleChange(event.target.value,event.target.id))} defaultValue={item.count} />
-                    <div className="col">$ {item.count}</div>
-                    <button className="btn btn-danger col" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
+                    <input id={item.id} type="number" className="col-2 m-x=2" maxLength={item.stock} minLength={1} onChange={(event)=>(handleChange(event.target.value,event.target.id))} defaultValue={item.count} />
+                    {/* <div className="col">$ {item.count}</div> */}
+                    <button className="btn btn-danger col-3" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
                   
                   </div>
                 </div>             

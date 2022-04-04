@@ -35,7 +35,7 @@ export const CartProvider =({children}) =>{
         console.log(cart)
         
         console.log(quantityCart())
-       console.log(totalCart())
+        console.log(totalCart())
        
        
         

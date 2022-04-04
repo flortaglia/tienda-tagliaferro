@@ -17,7 +17,7 @@ const NavBar = () => {
                 
                 <Link className="nav-Link col  mx-3" to="/productos/canastitas">Canastitas</Link>
                
-                <Link className="nav-Link col  mx-3" to="/firebase">Firebase</Link>
+                {/* <Link className="nav-Link col  mx-3" to="/firebase">Firebase</Link> */}
 
                 <div className="col"><CartWidget/></div>
                 
