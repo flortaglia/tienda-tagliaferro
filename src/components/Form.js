@@ -1,4 +1,5 @@
-import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import { addDoc, collection,where,query,getDocs, 
+   Timestamp, writeBatch, documentId } from 'firebase/firestore';
 import React, {useContext} from 'react'
 import {CartContext} from "../context/CartContext"
 import {db} from "../utils/firebase"
@@ -6,7 +7,7 @@ import swal from 'sweetalert';
 
 
 function Form() {
-  const {cart, totalCart} = useContext(CartContext)
+  const {cart, totalCart,emptyCart} = useContext(CartContext)
 
   const sendOrder = async(e)=>{
     e.preventDefault();
@@ -18,7 +19,8 @@ function Form() {
     const telefono= e.target[4].value;
     const indicacionesPedido=e.target[5].value;
     
-    const orederCollection = collection(db,'orders')
+    const orderCollection = collection(db,'orders')
+    const productosRef = collection(db, 'items')
     const newOrder = {
       buyer:{
         nombre,
@@ -33,8 +35,37 @@ function Form() {
       date:Timestamp.fromDate(new Date())
     }
     console.log(newOrder)
-    const refOrder =await addDoc (orederCollection, newOrder)
+    const refOrder =await addDoc (orderCollection, newOrder)
     swal("Gracias por tu compra. Tu id es:", refOrder.id, "success");
+   //cambiar stock
+    const batch= writeBatch(db)
+    const productCartIds = cart.map((el) => el.id)
+    const q = query(productosRef, where(documentId(), 'in', productCartIds))
+    const productos = await getDocs(q)
+    const outOfStock = []
+    
+    productos.docs.forEach((doc) => {
+        const item = cart.find((el) => el.id === doc.id)
+
+        if (doc.data().stock >= item.count) {
+            batch.update(doc.ref, {
+                stock: doc.data().stock - item.count
+            })
+        } else {
+            outOfStock.push(item)
+        }
+    })
+
+    if (outOfStock.length === 0) {
+        addDoc(orderCollection, newOrder)
+            .then((doc) => {
+                batch.commit()
+                emptyCart()
+            })
+    } else {
+        alert("Hay items sin stock")
+    }
+  
   }
   
   return (
