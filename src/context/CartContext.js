@@ -5,7 +5,8 @@ export const CartContext = createContext()
 
 export const CartProvider =({children}) =>{
     const [cart, setCart]=useState([])
-
+    let cantidad
+    let total
     const addToCart =(item)=>{
       setCart([...cart,item])
     }
@@ -28,18 +29,14 @@ export const CartProvider =({children}) =>{
     }
 
 
-    const handleChange = (value, id)=> {
-        const index= cart.findIndex((prod)=> prod.id == id)
-        console.log(cart[index])
-        cart[index].count=value
-        console.log(cart)
+    const handleChange = (value)=> {
+        // const index= cart.findIndex((prod)=> prod.id == id)
+        // console.log(cart[index])
+        // cart[index].count=value
+        console.log(value)
         
-        console.log(quantityCart())
-        console.log(totalCart())
-       
-       
-        
-        
+        // return (cantidad= quantityCart(),
+        // total= totalCart())        
     }
     
 
@@ -52,9 +49,9 @@ export const CartProvider =({children}) =>{
         totalCart,
         emptyCart,
         removeItem,
-        handleChange
+        handleChange, cantidad,
+        total
        
-
     }}>
 
         {children}

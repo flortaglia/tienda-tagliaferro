@@ -1,11 +1,12 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import {CartContext} from "../context/CartContext"
 import {BsFillTrashFill} from 'react-icons/bs'
 import { Link } from "react-router-dom";
+import InputNumber from 'react-numeric-input'
 
 const Cart = () => {
   const {cart, emptyCart,removeItem,totalCart, handleChange } = useContext(CartContext)
-
+ 
   return (
     <div>
       <div className="container">
@@ -28,9 +29,17 @@ const Cart = () => {
                   <div className=" row  my-2" >
                     <div className="col">{item.title}</div>
                     <div className="col">$ {item.price}</div>
-                    <input id={item.id} type="number" className="col-2 m-x=2" maxLength={item.stock} minLength={1} onChange={(event)=>(handleChange(event.target.value,event.target.id))} defaultValue={item.count} />
+                    {/* <input id={item.id} type="number" className="col-2 m-x=2" maxLength={item.stock} minLength={1} onChange={(event)=>(handleChange(event.target.value,event.target.id))} defaultValue={item.count} /> */}
+                    <span className="col" style={{width:"1rem"}}>
+
+
+                    <InputNumber   className="form-control" min={1} max={item.stock} step={1}
+                      value={item.count} 
+                    />
+                    </span>
+                    {/* onChange={e => handleChange(e.target.value) (event)=>(handleChange(event.target.value,event.target.id)) */}
                     {/* <div className="col">$ {item.count}</div> */}
-                    <button className="btn btn-danger col-3" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
+                    <button className="btn btn-danger col-3" style={{width:"3rem"}} onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
                   
                   </div>
                 </div>             
