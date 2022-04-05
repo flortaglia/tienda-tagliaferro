@@ -14,10 +14,12 @@ export const CartProvider =({children}) =>{
         return cart.some((prod)=>prod.id===id)
     }
     const quantityCart=()=>{
-        return cart.reduce((acc,prod)=>acc+prod.count,0)
+        const quantity= cart.reduce((acc,prod)=>acc+prod.count,0)
+        return quantity
     }
     const totalCart=()=>{
-        return cart.reduce((acc,prod)=>acc+prod.count*prod.price,0)
+        const total= cart.reduce((acc,prod)=>acc+prod.count*prod.price,0)
+        return total
     }
 
     const emptyCart= () =>{
@@ -41,7 +43,7 @@ export const CartProvider =({children}) =>{
         
         
     }
-    
+   
 
    return(
     <CartContext.Provider value={{
@@ -53,8 +55,8 @@ export const CartProvider =({children}) =>{
         emptyCart,
         removeItem,
         handleChange
-       
-
+        
+    
     }}>
 
         {children}

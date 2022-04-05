@@ -56,7 +56,7 @@ const Cart = () => {
         <div >
           <button className="btn btn-danger mx-2" onClick={emptyCart}>Vaciar Carrito</button>
           <Link to="/"><button className="btn btn-info mx-2">Seguir Comprando</button></Link>
-          <button className="btn btn-success mx-2">Comprar</button>
+          <Link to="/cart/form"><button className="btn btn-success mx-2">Comprar</button></Link>
         </div>
       </>
       } 
