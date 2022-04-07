@@ -2,14 +2,16 @@ import React, {useState, useContext} from 'react'
 import ItemCount from './ItemCount'
 import { Link } from "react-router-dom";
 import {CartContext} from "../context/CartContext"
+import swal from 'sweetalert';
 
 
 const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) => {
   
-  const [count, setCounter]= useState(1);
-  const {cart, addToCart, isInCart } = useContext(CartContext)
   
-  const onAdd =()=>{
+  const {cart, addToCart, isInCart, addWidget } = useContext(CartContext)
+  
+  const onAdd =(count)=>{
+    swal("Se agrego al carrito");
     if(!isInCart(id)){
       const itemToCart ={
         id,
@@ -21,9 +23,19 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
       }
       addToCart(itemToCart)
       console.log(cart) 
+      
+    }else{
+      const index= cart.findIndex((prod)=> prod.id == id) 
+      console.log(typeof(cart[index].count))
+      console.log(typeof(count))
+      cart[index].count = Number(cart[index].count) + count
+      console.log(cart[index].count)
+      addWidget()
     }
     
   }
+
+  
  
   return (
     <div>
@@ -42,6 +54,12 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         isInCart(id)?
         <>
           <div >
+          <ItemCount 
+            stock={stock} 
+            initial={1}
+            onAdd={onAdd}
+           />
+          
           <Link to="/">
             <button type="button" className="btn btn-secondary my-3" >Seguir comprando</button>
           </Link>
@@ -56,16 +74,9 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         <>
           <ItemCount 
             stock={stock} 
-            count={count} 
-            title={title}
-            setCounter={setCounter}
+            initial={1}
             onAdd={onAdd}
-            category={category}
-           />
-        
-          <button type="button" className="btn btn-primary mx-5 my-2"  onClick={onAdd}>
-          Agregar
-          </button>  
+           />  
         </> 
        
       }

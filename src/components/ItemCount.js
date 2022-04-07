@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{useState,useContext} from 'react'
+import {CartContext} from "../context/CartContext"
 
 
+const ItemCount = ({stock, initial, onAdd }) => {
 
-const ItemCount = ({stock, onAdd, count,title,category, setCounter}) => {
-   
+  const [count, setCounter]= useState(initial);
+  
+
   const handleRestar=()=>{
     count>1 && setCounter(count-1)
 
@@ -12,6 +15,10 @@ const ItemCount = ({stock, onAdd, count,title,category, setCounter}) => {
     count<stock && setCounter(count+1)
 
   }  
+
+  const reset = ()=>{
+    setCounter(1);
+  }
     return (
     <div>
          
@@ -20,8 +27,11 @@ const ItemCount = ({stock, onAdd, count,title,category, setCounter}) => {
         <span  className="count btn btn-primary">{count}</span>
         <button type="button" className="btn-minus btn btn-primary fas fa-minus" onClick={handleRestar}>-</button>
         </div>
-        
-       
+        <div>
+          <button type="button" className="btn btn-primary mx-5 my-2"  onClick={()=>{onAdd(count);reset()}}>
+            Agregar
+          </button>
+        </div>
          
     </div>
   )

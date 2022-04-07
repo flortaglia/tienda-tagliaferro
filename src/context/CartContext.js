@@ -1,24 +1,30 @@
-import {createContext, useState} from "react"
+import {createContext, useEffect, useState} from "react"
 import CartWidget from "../components/CartWidget"
 
 export const CartContext = createContext() 
 
 export const CartProvider =({children}) =>{
     const [cart, setCart]=useState([])
-
+    const [updateTotalCart,setUpdate]=useState()
+    const [updateTotalWidget,setUpdateWidget]=useState()
+    
     const addToCart =(item)=>{
       setCart([...cart,item])
     }
+
+   
 
     const isInCart = (id) =>{
         return cart.some((prod)=>prod.id===id)
     }
     const quantityCart=()=>{
         const quantity= cart.reduce((acc,prod)=>acc+prod.count,0)
-        return quantity
+        return quantity 
+        
     }
     const totalCart=()=>{
-        const total= cart.reduce((acc,prod)=>acc+prod.count*prod.price,0)
+        const total= cart
+        .reduce((acc,prod)=>acc+prod.count*prod.price,0)
         return total
     }
 
@@ -28,21 +34,35 @@ export const CartProvider =({children}) =>{
     const removeItem = (id)=>{
         return setCart(cart.filter((prod)=>prod.id !== id))
     }
-
-
-    const handleChange = (value, id)=> {
+    const handleChange =(value, id)=>{
         const index= cart.findIndex((prod)=> prod.id == id)
         console.log(cart[index])
-        cart[index].count=value
-        console.log(cart)
-        
-        console.log(quantityCart())
-        console.log(totalCart())
-       
-       
-        
-        
+        cart[index].count=Number(value)
+        console.log(cart[index].count)
     }
+    
+
+    const addCount = (value, id)=> {
+        handleChange(value, id)
+        setUpdate(!updateTotalCart)
+    }
+    useEffect(()=>{
+        totalCart()
+    },[updateTotalCart])    
+        
+    const addWidget = ()=> {
+        setUpdateWidget(!updateTotalWidget)
+    }    
+    useEffect(()=>{
+        quantityCart()
+    },[updateTotalWidget]) 
+
+
+       
+       
+        
+        
+    
    
 
    return(
@@ -54,7 +74,10 @@ export const CartProvider =({children}) =>{
         totalCart,
         emptyCart,
         removeItem,
-        handleChange
+        addCount,
+        addWidget
+       
+        
         
     
     }}>
