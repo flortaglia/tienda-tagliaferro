@@ -1,8 +1,28 @@
-Buenos días, este proyecto es un e-commerce de una tienda de comida "Pizzas y empanadas"
-Para ello utilice Bootstrap y React Js.
-video https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7
-Saludos
+# Pizzas&Co
 
+_Buenos días, este proyecto fue desarrollado con ReactJS. Es un e-commerce de una tienda de comida "Pizzas y empanadas"_
+
+## Comenzando 🚀
+Acá pueden ver un breve [video del proyecto] (https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7)
+
+
+## Construido con 🛠️
+
+_Las herramientas que utilicé para crear el proyecto son:_
+
+* [Bootstrap](https://getbootstrap.com/) - Estilos
+* [React-Icons](https://react-icons.github.io/) - Iconos
+* [Sweet Alert](https://sweetalert.js.org/) - Usado para generar Modals
+
+## Autor ✒️
+
+* **María Florencia Tagliaferro**  - [villanuevand](https://github.com/flortaglia/tienda-tagliaferro)
+
+## Expresiones de Gratitud 🎁
+
+* Muchas gracias a todos los tutores 📢
+* Gracias por la ayuda a mi tutor Jesús Pelozo. 
+* Y a mi familia y profes de Coder 🤓.
 
 # Getting Started with Create React App
 
