@@ -16,7 +16,7 @@ _Las herramientas que utilicé para crear el proyecto son:_
 
 ## Autor ✒️
 
-* **María Florencia Tagliaferro**  - [villanuevand](https://github.com/flortaglia/tienda-tagliaferro)
+* **María Florencia Tagliaferro**  - [FlorTagliaferro](https://github.com/flortaglia/tienda-tagliaferro)
 
 ## Expresiones de Gratitud 🎁
 
