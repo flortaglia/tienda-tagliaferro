@@ -3,7 +3,7 @@
 _Buenos días, este proyecto fue desarrollado con ReactJS. Es un e-commerce de una tienda de comida "Pizzas y empanadas"_
 
 ## Comenzando 🚀
-Acá pueden ver un breve [video del proyecto] (https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7)
+Acá pueden ver un breve [video del proyecto](https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7)
 
 
 ## Construido con 🛠️
