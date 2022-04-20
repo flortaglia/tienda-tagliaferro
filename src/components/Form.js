@@ -21,6 +21,7 @@ function Form() {
     
     const orderCollection = collection(db,'orders')
     const productosRef = collection(db, 'items')
+
     const newOrder = {
       buyer:{
         nombre,
@@ -37,7 +38,8 @@ function Form() {
     console.log(newOrder)
     const refOrder =await addDoc (orderCollection, newOrder)
     swal("Gracias por tu compra. Tu id es:", refOrder.id, "success");
-   //cambiar stock
+   
+    //cambiar stock
     const batch= writeBatch(db)
     const productCartIds = cart.map((el) => el.id)
     const q = query(productosRef, where(documentId(), 'in', productCartIds))

@@ -75,10 +75,7 @@ export const CartProvider =({children}) =>{
         emptyCart,
         removeItem,
         addCount,
-        addWidget
-       
-        
-        
+        addWidget   
     
     }}>
 

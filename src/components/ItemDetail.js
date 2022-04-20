@@ -11,7 +11,7 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
   const {cart, addToCart, isInCart, addWidget } = useContext(CartContext)
   
   const onAdd =(count)=>{
-    swal("Se agrego al carrito");
+    swal("Se agrego al carrito", "gracias", "success");
     if(!isInCart(id)){
       const itemToCart ={
         id,
@@ -19,7 +19,8 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         category,
         price,
         pictureUrl,
-        count
+        count,
+        stock
       }
       addToCart(itemToCart)
       console.log(cart) 

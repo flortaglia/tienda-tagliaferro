@@ -14,10 +14,10 @@ const Cart = () => {
         <div className="container my-6 mx-2">
           <div className="row">
           
-              <div className="col  fs-4">Producto</div>
-              <div className="col  fs-4">Precio Unitario</div>
-              <div className="col  fs-4">Cantidad</div>
-              <div className="col  fs-4"></div>
+              <div className="col fs-4">Producto</div>
+              <div className="col fs-4">Precio</div>
+              <div className="col fs-4">Cantidad</div>
+              
           
           </div>
           
@@ -26,12 +26,13 @@ const Cart = () => {
               cart.map((item)=>(
                 <div key={item.id}>    
                   <div className=" row  my-2" >
-                    <div className="col">{item.title}</div>
-                    <div className="col">$ {item.price}</div>
-                    <input id={item.id} type="number" className="col-2 m-x=2" max={item.stock} min={1} onChange={(event)=>(addCount(event.target.value,event.target.id))} defaultValue={item.count} />
+                    <div className="col fs-4">{item.title}</div>
+                    <div className="col fs-4">$ {item.price}</div>
+                    <div className="col">
+                    <input id={item.id} type="number"  max={item.stock} min={1} onChange={(event)=>(addCount(event.target.value,event.target.id))} defaultValue={item.count} />
                     {/* <div className="col">$ {item.count}</div> */}
-                    <button className="btn btn-danger col-3" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
-                  
+                    <button className="btn btn-danger" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
+                    </div>
                   </div>
                 </div>             
               ))
@@ -48,6 +49,7 @@ const Cart = () => {
           
         </div>
       </div> 
+      
       {cart.length!==0
       &&
       <>
