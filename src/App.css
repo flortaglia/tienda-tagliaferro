@@ -37,10 +37,7 @@
   }
 }
 
-.cart{
-  width: 40px;
-  padding-right: 10px;
-}
+
 .agregar{
   padding: 10px;
   margin: 20px;
@@ -51,4 +48,36 @@
   align-items: center;
   justify-content: space-between;
   width: 40%;
+}
+
+.colorNavFooter{
+  background-color: #647aa3;
+  padding: 1rem; 
+}
+
+.colorLink{
+  text-decoration: none;
+  color: #dee2e6;
+  font-family: 'Hahmlet', serif;
+  font-size: 1.2rem;
+}
+.footer{ 
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.social{ 
+  text-align: center;
+  list-style-type: none;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  z-index: 3;
+  width: 2rem;
+  
+}
+.socialLink{ 
+  color:white;
 }

@@ -7,6 +7,7 @@ import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom";
 import  Cart  from './components/Cart';
 import {CartProvider} from "./context/CartContext"
 import Form from './components/Form';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             {/* <Route path="/firebase" element={<FirebaseComponent/>}/> */}
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
+          <Footer/>
         </div>
       </BrowserRouter>
     </CartProvider>  
