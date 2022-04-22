@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import ItemCount from './ItemCount'
 import { Link } from "react-router-dom";
 import {CartContext} from "../context/CartContext"
@@ -7,11 +7,10 @@ import swal from 'sweetalert';
 
 const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) => {
   
-  
-  const {cart, addToCart, isInCart, addWidget } = useContext(CartContext)
+  const {cart, addToCart, isInCart, addWidget} = useContext(CartContext)
   
   const onAdd =(count)=>{
-    swal("Se agrego al carrito", `${count} ${category} ${title}`, "success");
+    
     if(!isInCart(id)){
       const itemToCart ={
         id,
@@ -22,15 +21,18 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         count,
         stock
       }
-      addToCart(itemToCart)
-      console.log(cart) 
+      addToCart(itemToCart) 
       
     }else{
       const index= cart.findIndex((prod)=> prod.id == id) 
-      console.log(typeof(cart[index].count))
-      console.log(typeof(count))
-      cart[index].count = Number(cart[index].count) + count
-      console.log(cart[index].count)
+      let order = Number(cart[index].count) + count
+      if (order<cart[index].stock){
+        cart[index].count = Number(cart[index].count) + count
+        swal("Se agrego al carrito", `${count} ${category} de ${title}`, "success");
+      }else{
+        cart[index].count=cart[index].stock
+        swal("No tenemos más stock", `${category} de ${title}`, "warning");
+      }
       addWidget()
     }
     
@@ -64,7 +66,6 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
           <Link to="/">
             <button type="button" className="btn btn-secondary my-3" >Seguir comprando</button>
           </Link>
-          {/* sería el botón que diría "Terminar Compra", me gusto más poner "Ver Carrito" */}
           <Link to="/cart">
             <button type="button" className="btn btn-primary my-3 mx-2" >Ver Carrito</button>
           </Link>

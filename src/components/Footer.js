@@ -1,6 +1,7 @@
 import React from 'react'
 import {FiTwitter, FiInstagram} from 'react-icons/fi'
 import {GrFacebook} from 'react-icons/gr'
+
 const Footer = () => {
   return (
     <div>
@@ -21,9 +22,9 @@ const Footer = () => {
                 
             </div>
             <ul >
-                <li className="social"><a target="_blank" rel="noreferrer" class="socialLink" href="https://www.facebook.com/adoptame.org"><GrFacebook/> </a> </li>
-                <li className="social"><a target="_blank" rel="noreferrer" class="socialLink" href="https://www.twitter.com/adoptame.org"><FiTwitter/> </a> </li>
-                <li className="social"><a target="_blank" rel="noreferrer" class="socialLink" href="https://www.instagram.com/adoptame.org"><FiInstagram/> </a> </li>
+                <li className="social"><a target="_blank" rel="noreferrer" className="socialLink" href="https://www.facebook.com/adoptame.org"><GrFacebook/> </a> </li>
+                <li className="social"><a target="_blank" rel="noreferrer" className="socialLink" href="https://www.twitter.com/adoptame.org"><FiTwitter/> </a> </li>
+                <li className="social"><a target="_blank" rel="noreferrer" className="socialLink" href="https://www.instagram.com/adoptame.org"><FiInstagram/> </a> </li>
             </ul>
         </footer>
     </div>

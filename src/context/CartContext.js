@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react"
-import CartWidget from "../components/CartWidget"
+// import CartWidget from "../components/CartWidget"
 
 export const CartContext = createContext() 
 
@@ -12,11 +12,10 @@ export const CartProvider =({children}) =>{
       setCart([...cart,item])
     }
 
-   
-
     const isInCart = (id) =>{
         return cart.some((prod)=>prod.id===id)
     }
+   
     const quantityCart=()=>{
         const quantity= cart.reduce((acc,prod)=>acc+prod.count,0)
         return quantity 
@@ -41,7 +40,6 @@ export const CartProvider =({children}) =>{
         console.log(cart[index].count)
     }
     
-
     const addCount = (value, id)=> {
         handleChange(value, id)
         setUpdate(!updateTotalCart)
@@ -57,14 +55,6 @@ export const CartProvider =({children}) =>{
         quantityCart()
     },[updateTotalWidget]) 
 
-
-       
-       
-        
-        
-    
-   
-
    return(
     <CartContext.Provider value={{
         cart, 
@@ -75,8 +65,7 @@ export const CartProvider =({children}) =>{
         emptyCart,
         removeItem,
         addCount,
-        addWidget   
-    
+        addWidget 
     }}>
 
         {children}

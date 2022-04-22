@@ -13,15 +13,10 @@ const FirebaseComponent = () => {
             const query = collection(db, 'items');
             //Variable de respuesta obtenida de la petición a firebase, como es async ..recibe palabre await
             const response = await getDocs(query);
-            console.log(response)
+            
             //para acceder a los datos, creo una variable que contenga mi info (propiedad docs)
             //metodo data me da la info de cada uno de los documentos
             const dataItems = response.docs.map(doc=>{ return {id:doc.id,...doc.data()}})
-            console.log(dataItems)
-            // const newDoc ={
-            //     id:doc.id,
-            //     data:doc.data()
-            // }
 
             setProductos(dataItems)
 
@@ -32,7 +27,6 @@ const FirebaseComponent = () => {
             const response1 = await getDoc(queryDoc)
             //acceder a la Data
             const dataDoc= response1.data()
-            console.log(dataDoc)
         }
         getData();
     },[])

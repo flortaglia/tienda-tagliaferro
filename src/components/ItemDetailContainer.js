@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-// import searchProduct from './PedirDatos'
 import ItemDetail from './ItemDetail'
 import {getDoc, doc} from "firebase/firestore"
 import {db} from "../utils/firebase"
