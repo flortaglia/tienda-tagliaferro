@@ -1,6 +1,6 @@
 # Pizzas&Co
 
-_Este proyecto fue desarrollado con ReactJS. Es un e-commerce de una tienda de comida "Pizzas y empanadas"
+Este proyecto fue desarrollado con ReactJS. Es un e-commerce de una tienda de comida "Pizzas y empanadas"
 
 ## Gestión de Stock
 
