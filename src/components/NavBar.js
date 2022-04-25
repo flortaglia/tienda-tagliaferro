@@ -12,16 +12,18 @@ const NavBar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <Link className="navbar-brand" to="/">Pizzas&Co</Link>
+            <Link className="navbar-brand" to="/">
+              <img src="/pizza.png" alt="logo" id="mainLogo" />
+              </Link>
             <ul className="navbar-nav">
               <li className="nav-item mx-3">
-                <Link className="nav-link " aria-current="page" to="/productos/Pizzas">Pizzas</Link>
+                <Link className="nav-link mb-0 h3" aria-current="page" to="/productos/Pizzas">Pizzas</Link>
               </li>
               <li className="nav-item mx-3">
-                <Link className="nav-link" to="/productos/Empanadas">Empanadas</Link>
+                <Link className="nav-link mb-0 h3" to="/productos/Empanadas">Empanadas</Link>
               </li>
               <li className="nav-item mx-3">
-                <Link className="nav-link" to="/productos/Canastitas">Canastitas</Link>
+                <Link className="nav-link mb-0 h3" to="/productos/Canastitas">Canastitas</Link>
               </li>            
             </ul>
           </div>

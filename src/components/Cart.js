@@ -29,7 +29,7 @@ const Cart = () => {
                     <div className="col fs-4">{item.title}</div>
                     <div className="col fs-4">$ {item.price}</div>
                     <div className="col">
-                    <input id={item.id} type="number"  max={item.stock} min={1} onChange={(event)=>(addCount(event.target.value,event.target.id))} defaultValue={item.count} />
+                    <input id={item.id} type="number" className='styleInput' max={item.stock} min={1} onChange={(event)=>(addCount(event.target.value,event.target.id))} defaultValue={item.count} />
                      <button className="btn btn-danger" onClick={()=>removeItem(item.id)}><BsFillTrashFill/></button>
                     </div>
                   </div>

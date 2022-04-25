@@ -51,13 +51,13 @@
 }
 
 .colorNavFooter{
-  background-color: #647aa3;
+  background-color: #647aa3; 
   padding: 1rem; 
 }
 
 .colorLink{
   text-decoration: none;
-  color: #dee2e6;
+   color: #dee2e6;
   font-family: 'Hahmlet', serif;
   font-size: 1.2rem;
 }
@@ -79,5 +79,12 @@
   
 }
 .socialLink{ 
-  color:white;
+  color:whitesmoke;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1
+}
+.styleInput{
+  margin-right: 0.5rem;
 }

@@ -22,7 +22,7 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         stock
       }
       addToCart(itemToCart) 
-      
+      swal("Se agrego al carrito", `${count} ${category} de ${title}`, "success");
     }else{
       const index= cart.findIndex((prod)=> prod.id == id) 
       let order = Number(cart[index].count) + count
@@ -33,6 +33,7 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         cart[index].count=cart[index].stock
         swal("No tenemos más stock", `${category} de ${title}`, "warning");
       }
+      
       addWidget()
     }
     

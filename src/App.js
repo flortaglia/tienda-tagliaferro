@@ -25,7 +25,6 @@ function App() {
             <Route path="/detail/:seeId" element={<ItemDetailContainer/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/cart/form" element={<Form />}/>
-            {/* <Route path="/firebase" element={<FirebaseComponent/>}/> */}
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
           <Footer/>

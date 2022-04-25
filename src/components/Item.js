@@ -10,7 +10,7 @@ const Item = ({title,pictureUrl,id}) => {
         <img src={pictureUrl} className="card-img-top" alt="..."/>
         <div className="card-body">
           <h4 className="card-title">{title}</h4>
-          <Link to={`/detail/${id}`}><button variant="primary">Ver más</button></Link>
+          <Link to={`/detail/${id}`} className="btn btn-primary">Ver más</Link>
         </div>   
       </div>
     </div>
