@@ -3,6 +3,13 @@ import CartWidget from './CartWidget'
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+
+  const navItems=[
+    {title:"Pizzas", to:"/productos/Pizzas"},
+    {title:"Empanadas", to:"/productos/Empanadas"},
+    {title:"Canastitas", to:"/productos/Canastitas"}
+  ]
+
   return (
     <div >
       
@@ -14,18 +21,15 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <Link className="navbar-brand" to="/">
               <img src="/pizza.png" alt="logo" id="mainLogo" />
-              </Link>
+            </Link>
+            
             <ul className="navbar-nav">
-              <li className="nav-item mx-3">
-                <Link className="nav-link mb-0 h3" aria-current="page" to="/productos/Pizzas">Pizzas</Link>
-              </li>
-              <li className="nav-item mx-3">
-                <Link className="nav-link mb-0 h3" to="/productos/Empanadas">Empanadas</Link>
-              </li>
-              <li className="nav-item mx-3">
-                <Link className="nav-link mb-0 h3" to="/productos/Canastitas">Canastitas</Link>
-              </li>            
-            </ul>
+              { navItems.map(navItem=>
+                <li className="nav-item mx-3">
+                  <Link className="nav-link mb-0 h3" aria-current="page" to={navItem.to}>{navItem.title}</Link>
+                </li>
+              )}             
+            </ul> 
           </div>
           <div className="col-2"><CartWidget/></div> 
         </div>
