@@ -9,7 +9,7 @@ const ItemList = ({listProducts}) => {
       <div className="card-group row-cols-md-4 g-4">
       
        {listProducts.map((product) => 
-        <Item {...product}/>)} 
+        <Item key={product.id} {...product}/>)} 
       </div>  
     </div>
   )

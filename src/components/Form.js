@@ -35,10 +35,7 @@ function Form() {
       total:totalCart(),
       date:Timestamp.fromDate(new Date())
     }
-    console.log(newOrder)
     
-    
-   
     //cambiar stock
     const batch= writeBatch(db)
     const productCartIds = cart.map((el) => el.id)
@@ -61,8 +58,6 @@ function Form() {
     if (outOfStock.length === 0) {
         addDoc(orderCollection, newOrder)
             .then((createdOrder) => {
-                console.log(createdOrder)
-                console.log(createdOrder.id)
                 batch.commit()
                 swal(`Gracias por tu compra ${newOrder.buyer.nombre}. Tu id es:`, createdOrder.id, "success");
                 emptyCart()
@@ -74,34 +69,28 @@ function Form() {
   
   }
   
+  const fields=[
+    {title:"Nombre", type:"text", placeHolder:"Pablo"},
+    {title:"Apellido", type:"text", placeHolder:"Sanchez"},
+    {title:"Dirección", type:"text", placeHolder:"Av Cabildo 3383"},
+    {title:"Teléfono", type:"number", placeHolder:"11.5642.3383"}
+  ]
+  
   return (
     <div>
-      <form className="row g-3" onSubmit={sendOrder}>
-        <div className="col-md-4">
-          <label for="validationDefault01" className="form-label">Nombre</label>
-          <input type="text" className="form-control" id="validationDefault01" placeholder="Nombre" required/>
-        </div>
-        <div className="col-md-4">
-          <label for="validationDefault02" className="form-label">Apellido</label>
-          <input type="text" className="form-control" id="validationDefault02" placeholder="Apellido" required/>
-        </div>
-        <div className="col-md-4">
-          <label for="exampleFormControlInput1" className="form-label">Email </label>
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="nombre@mail.com"/>
-        </div>
-        <div className="col-md-8">
-          <label for="validationDefault03" className="form-label">Dirección</label>
-          <input type="text" className="form-control" id="validationDefault03" required/>
-        </div>
-        
-        <div className="col-md-4">
-          <label for="validationDefault05" className="form-label">Teléfono</label>
-          <input type="number" className="form-control" id="validationDefault05" required/>
-        </div>
+      <form className="row g-6 mx-4" onSubmit={sendOrder}>
+      {
+        fields.map(field=> 
+        <div className="col-md-6">
+          <label for="validationDefault01" className="form-label">{field.title}</label>
+          <input type={field.type} className="form-control" id="validationDefault01" placeholder={field.placeHolder} required/>
+        </div>  
+        )
+      }
         
         <div className="mb-3">
             <label for="exampleFormControlTextarea1" className="form-label">Notas</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Agrega aquí las instrucciones que necesites detallar"></textarea>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Agrega aquí las instrucciones que necesites detallar: sin sal, condimentos..."></textarea>
         </div>
         <div className="col-12">
           <div className="form-check col-2">
