@@ -11,7 +11,7 @@ En el momento de finalizar la compra se realiza un último chequeo, para asegura
 
 
 ## Comenzando 🚀
-Acá pueden ver un breve [video del proyecto](https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7)
+Acá pueden ver un breve [video del proyecto](https://www.loom.com/share/d4a5e2a56b054aa48e64781704327f71)
 
 
 ## Construido con 🛠️
