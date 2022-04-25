@@ -12,7 +12,8 @@ const Cart = () => {
       <h2 className="my-4">Carrito de Comprás</h2>
                   
       <div className="container my-6 mx-2">
-        {  cart.length!==0 ? 
+        { cart.length!==0 
+          ? 
           <>
             <div className="row">
                 <div className="col fs-4">Producto</div>
@@ -39,7 +40,6 @@ const Cart = () => {
               <Link to="/cart/form" className="btn btn-success mx-2">Comprar</Link>
             </div>
           </>
-
           : 
           <>  
               <h4 className='fst-italic'>No has seleccionado nada, te invitamos a ver nuestros productos</h4>
