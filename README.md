@@ -1,6 +1,14 @@
 # Pizzas&Co
 
-_Buenos días, este proyecto fue desarrollado con ReactJS. Es un e-commerce de una tienda de comida "Pizzas y empanadas"_
+_Este proyecto fue desarrollado con ReactJS. Es un e-commerce de una tienda de comida "Pizzas y empanadas"
+
+## Gestión de Stock
+
+Para el proyecto, se utilizó el método usado por MercadoLibre. Donde el stock del ítem sólo se resta una vez efectuada la compra.
+Por lo que sólo puede cargarse el máximo de productos disponibles, pero siguen figurando en stock en caso de permanecer en el carrito, para que otro comprador pueda cargarlo y realizar su compra.
+En caso de solicitar más del stock, se le avisará con un modal.
+En el momento de finalizar la compra se realiza un último chequeo, para asegurarnos contar con el stock solicitado.
+
 
 ## Comenzando 🚀
 Acá pueden ver un breve [video del proyecto](https://www.loom.com/share/c2643c2910b741258771fa7a9a09d5a7)
