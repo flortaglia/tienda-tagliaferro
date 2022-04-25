@@ -69,10 +69,10 @@ function Form() {
   }
   
   const fields=[
-    {title:"Nombre", type:"text", placeHolder:"Pablo"},
-    {title:"Apellido", type:"text", placeHolder:"Sanchez"},
-    {title:"Dirección", type:"text", placeHolder:"Av Cabildo 3383"},
-    {title:"Teléfono", type:"number", placeHolder:"11.5642.3383"}
+    {title:"Nombre", type:"text", min:3, placeHolder:"Pablo"},
+    {title:"Apellido", type:"text",min:3, placeHolder:"Sanchez"},
+    {title:"Dirección", type:"text", min:5, placeHolder:"Av Cabildo 3383"},
+    {title:"Teléfono", type:"tel", min:8, placeHolder:"11.5642.3383"}
   ]
   
   return (
@@ -81,20 +81,20 @@ function Form() {
       {
         fields.map((field,index)=> 
         <div key={index} className="col-md-6">
-          <label for="validationDefault01" className="form-label">{field.title}</label>
-          <input type={field.type} className="form-control" id="validationDefault01" placeholder={field.placeHolder} required/>
+          <label  className="form-label">{field.title}</label>
+          <input type={field.type} className="form-control" id="validationDefault01" minLength={field.min} placeholder={field.placeHolder} required/>
         </div>  
         )
       }
         
         <div className="mb-3">
-            <label for="exampleFormControlTextarea1" className="form-label">Notas</label>
+            <label  className="form-label">Notas</label>
             <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Agrega aquí las instrucciones que necesites detallar: sin sal, condimentos..."></textarea>
         </div>
         <div className="col-12">
           <div className="form-check col-2">
             <input className="form-check-input mx-0" type="checkbox" value="" id="invalidCheck2" required/>
-            <label className="form-check-label p-0" for="invalidCheck2">
+            <label className="form-check-label p-0" >
               Acepto los terminos y condiciones
             </label>
           </div>
