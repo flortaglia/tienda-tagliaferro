@@ -28,7 +28,7 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
       let order = Number(cart[index].count) + count
       if (order<cart[index].stock){
         cart[index].count = Number(cart[index].count) + count
-        swal("Se agrego al carrito", `${count} ${category} de ${title}`, "success");
+        swal("Se agrego al carrito", `${count} ${category} más de ${title}`, "success");
       }else{
         cart[index].count=cart[index].stock
         swal("No tenemos más stock", `${category} de ${title}`, "warning");
@@ -64,11 +64,11 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
             onAdd={onAdd}
            />
           
-          <Link to="/">
-            <button type="button" className="btn btn-secondary my-3" >Seguir comprando</button>
+          <Link className="btn btn-success my-3" to="/">
+            Seguir Comprando
           </Link>
-          <Link to="/cart">
-            <button type="button" className="btn btn-primary my-3 mx-2" >Ver Carrito</button>
+          <Link className="btn btn-info my-3 mx-2 " style={{color:"white"}} to="/cart">
+            Ver Carrito
           </Link>
 
           </div>
