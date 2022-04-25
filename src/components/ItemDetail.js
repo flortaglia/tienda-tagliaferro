@@ -55,7 +55,7 @@ const ItemDetail = ({id,stock, category, title,description,price,pictureUrl}) =>
         stock={stock} 
         initial={1}
         onAdd={onAdd}
-        />
+      />
     
       {
         isInCart(id)

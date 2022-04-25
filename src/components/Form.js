@@ -6,18 +6,17 @@ import {db} from "../utils/firebase"
 import swal from 'sweetalert';
 
 
+
 function Form() {
   const {cart, totalCart,emptyCart} = useContext(CartContext)
 
   const sendOrder = async(e)=>{
     e.preventDefault();
-    console.log (e);
     const nombre= e.target[0].value;
     const apellido= e.target[1].value;
-    const email= e.target[2].value;
-    const direccion= e.target[3].value;
-    const telefono= e.target[4].value;
-    const indicacionesPedido=e.target[5].value;
+    const direccion= e.target[2].value;
+    const telefono= e.target[3].value;
+    const indicacionesPedido=e.target[4].value;
     
     const orderCollection = collection(db,'orders')
     const productosRef = collection(db, 'items')
@@ -26,7 +25,6 @@ function Form() {
       buyer:{
         nombre,
         apellido,
-        email,
         direccion,
         telefono,
         indicacionesPedido
@@ -59,12 +57,13 @@ function Form() {
         addDoc(orderCollection, newOrder)
             .then((createdOrder) => {
                 batch.commit()
-                swal(`Gracias por tu compra ${newOrder.buyer.nombre}. Tu id es:`, createdOrder.id, "success");
+                swal(`Gracias por tu compra ${newOrder.buyer.nombre}. Tu id es:`, createdOrder.id, "success")
+                .then(()=>{window.location.href="/"});
                 emptyCart()
             })
         
     } else {
-        alert("Hay items sin stock")
+      swal(`Hay items sin stock`, "warning");
     }
   
   }
@@ -80,8 +79,8 @@ function Form() {
     <div>
       <form className="row g-6 mx-4" onSubmit={sendOrder}>
       {
-        fields.map(field=> 
-        <div className="col-md-6">
+        fields.map((field,index)=> 
+        <div key={index} className="col-md-6">
           <label for="validationDefault01" className="form-label">{field.title}</label>
           <input type={field.type} className="form-control" id="validationDefault01" placeholder={field.placeHolder} required/>
         </div>  
