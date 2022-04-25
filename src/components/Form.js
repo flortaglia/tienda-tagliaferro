@@ -36,8 +36,8 @@ function Form() {
       date:Timestamp.fromDate(new Date())
     }
     console.log(newOrder)
-    const refOrder =await addDoc (orderCollection, newOrder)
-    swal("Gracias por tu compra. Tu id es:", refOrder.id, "success");
+    
+    
    
     //cambiar stock
     const batch= writeBatch(db)
@@ -60,10 +60,14 @@ function Form() {
 
     if (outOfStock.length === 0) {
         addDoc(orderCollection, newOrder)
-            .then((doc) => {
+            .then((createdOrder) => {
+                console.log(createdOrder)
+                console.log(createdOrder.id)
                 batch.commit()
+                swal(`Gracias por tu compra ${newOrder.buyer.nombre}. Tu id es:`, createdOrder.id, "success");
                 emptyCart()
             })
+        
     } else {
         alert("Hay items sin stock")
     }
@@ -92,7 +96,7 @@ function Form() {
         
         <div className="col-md-4">
           <label for="validationDefault05" className="form-label">Teléfono</label>
-          <input type="text" className="form-control" id="validationDefault05" required/>
+          <input type="number" className="form-control" id="validationDefault05" required/>
         </div>
         
         <div className="mb-3">
